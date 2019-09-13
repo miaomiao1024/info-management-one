@@ -7,7 +7,7 @@ import Equipment from './Equipment';
 import RescueTeam from './RescueTeam';
 import Shelter from "./Shelter";
 
-const TabPane = Tabs.TabPane;
+// const TabPane = Tabs.TabPane;
 
 class Resource extends Component {
   constructor(props) {
@@ -21,30 +21,30 @@ class Resource extends Component {
     return (
       <div className="resource-list-page">
         <Tabs ActiveKey="1">
-          <TabPane tab={<Link to="/emergency/resource/material">应急救援物资</Link>}
+          <Tabs.TabPane tab={<Link to="/emergency/resource/material">应急救援物资</Link>}
             key="1"
           >
             <Material />
-          </TabPane>
-          <TabPane 
+          </Tabs.TabPane>
+          <Tabs.TabPane 
             tab={<Link to="/emergency/resource/equipment">应急救援装备</Link>}
             key="2"
           > 
             <Equipment />   
-          </TabPane>
-          <TabPane 
+          </Tabs.TabPane>
+          <Tabs.TabPane 
             tab={<Link to="/emergency/resource/team">应急救援队伍</Link>}
             key="3"
           >
             <RescueTeam />
-          </TabPane>
-          <TabPane 
+          </Tabs.TabPane>
+          <Tabs.TabPane 
             tab={<Link to="/emergency/resource/shelter">应急避难场所</Link>}
             key="4"
           >
             <Shelter />
             
-          </TabPane>
+          </Tabs.TabPane>
         </Tabs>
       </div>
 

@@ -7,7 +7,7 @@ import Approved from './Approval';
 import Results from './Results';
 import ApprovalRoute from './route';
 
-const TabPane = Tabs.TabPane;
+// const TabPane = Tabs.TabPane;
 
 class PlanApproval extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class PlanApproval extends Component {
       <div className="plan-approval-list-page">
         
         <Tabs defaultActiveKey="1">
-          <TabPane 
+          <Tabs.TabPane 
             tab={<Link to="/emergency/approval">未审批</Link>}
             key="1"
           >
@@ -31,19 +31,19 @@ class PlanApproval extends Component {
             <ApprovalRoute>
               <NotApproved />
             </ApprovalRoute>
-          </TabPane>
-          <TabPane tab="已审批"
+          </Tabs.TabPane>
+          <Tabs.TabPane tab="已审批"
             key="2"
           > 
             <PageTitle titles={['应急指挥','预案审批','已审批']} />
             <Approved />
-          </TabPane>
-          <TabPane tab="审批结果"
+          </Tabs.TabPane>
+          <Tabs.TabPane tab="审批结果"
             key="3"
           >
             <PageTitle titles={['应急指挥','预案审批','审批结果']} />
             <Results />
-          </TabPane>
+          </Tabs.TabPane>
         </Tabs>
         
       </div>

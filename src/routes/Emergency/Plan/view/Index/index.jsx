@@ -8,10 +8,9 @@ import { Link } from 'react-router-dom';
 import {
   SELECT_EMERGENCY_PLAN_LEVEL,
 }from '../../config';
-
 const FIRST_PAGE = 0;
 const PAGE_SIZE = 7;
-const Search = Input.Search;
+// const Search = Input.Search;
 
 class EmergencyPlan extends Component {
   constructor(props) {
@@ -82,15 +81,15 @@ class EmergencyPlan extends Component {
         <PageTitle titles={['应急指挥','应急预案']}>
           {
             <Link to={{pathname:"/emergency/plan/new"}}>
-            <Button type="primary">+ 新建预案</Button>
+              <Button type="primary">+ 新建预案</Button>
             </Link>
           }
         </PageTitle>
         <Module>
-        <Row>
+          <Row>
             <Col span={2}>预案等级：</Col>
             <Col span={4}>
-              <Select placeholder="请选择预案等级"
+            <Select placeholder="请选择预案等级"
                 style={{ width: 220 }}
                 onChange={this.selectLevel}
               >
@@ -103,13 +102,13 @@ class EmergencyPlan extends Component {
                   ))
                 }
               </Select>
-            </Col>
+          </Col>
             <Col span={2}>
-              <Button  
+            <Button  
                 type="primary" 
                 onClick={() => {this.getTotalPage(0)}}
               >搜索</Button>
-            </Col>
+          </Col>
           </Row> 
         </Module>
         <Table
@@ -177,7 +176,7 @@ class EmergencyPlan extends Component {
                   onConfirm={()=> {this.deleteGroup(record)}}
                 >
                   <Button type="simple"
-                  style={{border:'none',padding:0,color:"#357aff",background:'transparent'}}
+                    style={{border:'none',padding:0,color:"#357aff",background:'transparent'}}
                   >删除</Button>
                 </Popconfirm>
               </div>

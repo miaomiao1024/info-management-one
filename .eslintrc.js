@@ -73,17 +73,17 @@ module.exports={
           //"react/jsx-sort-props": 2, //强化props按字母排序
           "react/jsx-uses-react": 1, //防止反应被错误地标记为未使用
           //"react/jsx-uses-vars": 2, //防止在JSX中使用的变量被错误地标记为未使用
-          "react/no-danger": 0, //防止使用危险的JSX属性
+          // "react/no-danger": 0, //防止使用危险的JSX属性
           //"react/no-did-mount-set-state": 0, //防止在componentDidMount中使用setState
           //"react/no-did-update-set-state": 1, //防止在componentDidUpdate中使用setState
           "react/no-direct-mutation-state": 2, //防止this.state的直接变异
           //"react/no-multi-comp": 2, //防止每个文件有多个组件定义
           //s"react/no-set-state": 0, //防止使用setState
-          "react/no-unknown-property": 2, //防止使用未知的DOM属性
+          // "react/no-unknown-property": 2, //防止使用未知的DOM属性
           "react/prefer-es6-class": 2, //为React组件强制执行ES5或ES6类
           "react/prop-types": 0, //防止在React组件定义中丢失props验证
           //"react/react-in-jsx-scope": 2, //使用JSX时防止丢失React
-          "react/self-closing-comp": 0, //防止没有children的组件的额外结束标签
+          // "react/self-closing-comp": 0, //防止没有children的组件的额外结束标签
           //"react/sort-comp": 2, //强制组件方法顺序
           "no-extra-boolean-cast": 0, //禁止不必要的bool转换
           "react/no-array-index-key": 0, //防止在数组中遍历中使用数组key做索引
