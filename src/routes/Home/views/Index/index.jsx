@@ -72,7 +72,7 @@ class Home extends React.Component{
               <div className="home">
                 <div className="inter"><Icon style={{fontSize:70}} type="apartment" /><br/>
                   <h3>权限管理</h3>
-                  <p>收集多个模块的运行日志并统一管理。</p>    
+                  <p>展示用户目录并且为用户分配不同的角色。</p>    
                 </div>
               </div>
             </Col>

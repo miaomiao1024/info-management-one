@@ -88,7 +88,7 @@ class Area extends Component {
        <PageTitle titles={['管廊维护','管廊区域管理']}>
          {
            <Link to={"/pipe/area/new"}>
-             <Button type="primary">+ 新建管廊信息</Button>
+             <Button type="primary">+ 新建管廊区域信息</Button>
            </Link>
          }
        </PageTitle>

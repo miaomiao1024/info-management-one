@@ -282,7 +282,7 @@ class Login extends React.Component{
               <div className="service-box" onClick={this.account}>
               <div className="service-icon"><Icon type="apartment" /></div>
               <div className="service-title">权限管理</div>
-                  <p className="service-desc">收集多个模块的运行日志并统一管理。</p>    
+                  <p className="service-desc">展示用户目录并且为用户分配不同的角色。</p>    
                 </div>
             </Col>
             <Col span={6} onClick={this.log}>

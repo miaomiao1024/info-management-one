@@ -111,6 +111,7 @@ class DailyInspection extends Component {
     const select= this.getdate(selectedValue)+" 0:0:0"
     console.log(select)
     const selected=Math.round(new Date(select).getTime()/1000).toString()  
+    console.log(selected)
     axios.get(`/api/v1/info/inspectionReportByPage?date=${selected}&limit=4&page=0&user_id=${user_id}`)
       .then((res) => {
         if(res && res.status === 200){

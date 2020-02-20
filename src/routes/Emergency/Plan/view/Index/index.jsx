@@ -43,8 +43,8 @@ class EmergencyPlan extends Component {
           });
         }
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((err) => {
+        console.log(err);
       });
   }
   //分页
