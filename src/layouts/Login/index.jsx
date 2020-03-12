@@ -28,6 +28,7 @@ class Login extends React.Component {
       password: '',
       token: '',
       menu: false,
+      borderColor: 0,
       showContent: window.sessionStorage.getItem("user_id") ? true : false,
       //为了实现从首屏返回上一级
       showModule: window.sessionStorage.getItem("showModule") ? true : false,
@@ -128,9 +129,25 @@ class Login extends React.Component {
         message.info("账号或密码错误")
       });
   }
+  inputPassword = () => {
+    console.log("进入onChange函数");
+    const { form } = this.props
+    let values = {}
+    values = form.getFieldsValue()
+    console.log(values);
+    let str = values.password
+    let patrn = /[`~!@#$%^&*()_\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、]/im
+    if (patrn.test(str)) {
+      console.log("有")
+      this.setState({ borderColor: 1 })
+    } else {
+      console.log("无非法字符")
+    }
+
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { showContent, showModule } = this.state;
+    const { showContent, showModule, borderColor } = this.state;
     const condition = 'user_id===8';
     const sys = window.sessionStorage.getItem("level");
     const sysJudge = (sys === 'SYS_ADMIN') ? true : false;
@@ -172,12 +189,19 @@ class Login extends React.Component {
                         message: "请输入密码",
                       }]
                     })(
-                      <Input className="inputClass"
-                        type="password"
-                      />
+                      <div>
+                        <Input className="inputClass"
+                          type="password"
+                          onChange={() => { this.inputPassword() }}
+                          style={{ borderColor: borderColor === 1 ? "red" : "" }}
+                        />
+                        <div className="tipsStyle" style={{ display: borderColor === 1 ? "" : "none" }}>存在非法输入</div>
+                      </div>
+
                     )}
                   </Form.Item>
                 </div>
+
                 <Button className="btn"
                   htmlType="submit"
                   type="primary"

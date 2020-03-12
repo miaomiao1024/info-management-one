@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { PageTitle } from '../../../../../components';
+import { PageTitleCreate } from '@src/components';
 import { Row, Col } from 'antd';
 import TitleNav from './TitleNav';
 import BasicInfo from './BasicInfo';
@@ -32,9 +32,10 @@ class EntranceWorkDetail extends Component {
 
   render() {
     const { entranceDetail } = this.state
+    console.log(entranceDetail)
     return (
       <div className="entrance-work-detail-page">
-        <PageTitle titles={['巡检维护', '入廊申请', '详情']} />
+        <PageTitleCreate titles={['巡检维护', '入廊申请', '详情']} jump={'/entrance/work'} />
         <section className="basic-info-container">
           <TitleNav title="基本信息"></TitleNav>
           <Row>

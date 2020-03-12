@@ -11,7 +11,7 @@ const FIRST_PAGE = 0;
 const PAGE_SIZE = 10;
 const user_id = window.sessionStorage.getItem("user_id");
 
-class Material extends Component {
+class RescueMaterial extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -201,5 +201,5 @@ class Material extends Component {
   }
 }
 
-export default Material;
+export default RescueMaterial;
 

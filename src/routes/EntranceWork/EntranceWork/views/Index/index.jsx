@@ -15,7 +15,7 @@ import moment from 'moment';
 const FIRST_PAGE = 0;
 const PAGE_SIZE = 10;
 const user_id = window.sessionStorage.getItem("user_id");
-class Homework extends Component {
+class EmergencyWorkApply extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,6 +37,9 @@ class Homework extends Component {
     axios.get(`/api/v1/info/entranceWorkByPage?limit=${size}&page=${page}&range=${range}&user_id=${user_id}`)
       .then((res) => {
         if (res && res.status === 200) {
+          console.log(res);
+          let arr = res.data.data.reverse()
+          res.data.data = arr
           this.setState({
             data: res.data,
             nowCurrent: res.data.page
@@ -194,7 +197,7 @@ class Homework extends Component {
   }
 }
 
-export default Homework;
+export default EmergencyWorkApply;
 // export default connect(state => ({
 //   // features: state.features.features,
 // }),

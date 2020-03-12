@@ -100,9 +100,9 @@ class NotApproved extends Component {
                 style={{ display: 'block' }}
               >
                 <Link
-                  to={`/entrance/approval/new/${record.id}`}
+                  to={`/entrance/approval/${record.id}`}
                   style={{ marginRight: '5px' }}
-                >新建审批</Link>
+                >审批</Link>
 
                 <Popconfirm
                   title="确定要删除吗"

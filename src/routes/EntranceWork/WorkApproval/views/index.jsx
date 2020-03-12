@@ -30,7 +30,7 @@ class WorkApprovalRoute extends Component {
         />
         <Route
           exact
-          path="/entrance/approval/new/:id"
+          path="/entrance/approval/:id"
           component={Loadable({
             loader: () => import(
               /* webpackChunkName: "Device" */

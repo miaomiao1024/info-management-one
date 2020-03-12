@@ -5,34 +5,34 @@ import axios from 'axios';
 const FIRST_PAGE = 0;
 const PAGE_SIZE = 10;
 const user_id = window.sessionStorage.getItem("user_id");
-class Results extends Component {
+class ApprovalResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
       current: FIRST_PAGE,
       size: PAGE_SIZE,
-      total: 0, 
-      data:[],
-      nowCurrent:FIRST_PAGE    
+      total: 0,
+      data: [],
+      nowCurrent: FIRST_PAGE
     };
     this.getGroupList = this.getGroupList.bind(this);
   }
-  
-  componentDidMount(){
+
+  componentDidMount() {
     this.getGroupList();
   }
-  getGroupList = ()=>{
+  getGroupList = () => {
     axios.get(`/api/v1/user/planAudit?user_id=${user_id}`)
-      .then((res)=>{
-        if(res&&res.status === 200){
+      .then((res) => {
+        if (res && res.status === 200) {
           console.log(res);
           this.setState({
-            data:res.data
+            data: res.data
 
           })
         }
       })
-      .catch(function(error){
+      .catch(function (error) {
         console.log(error);
       })
   }
@@ -43,7 +43,7 @@ class Results extends Component {
       // current,
       // total,
       // size
-      
+
     } = this.state;
     return (
       <div>
@@ -62,14 +62,14 @@ class Results extends Component {
             title: '预案ID',
             key: 'planId',
             render: (text, record) => (record.planId && record.planId) || '--',
-          },{
+          }, {
             title: '用户ID',
             key: 'userId',
             render: (text, record) => (record.userId && record.userId) || '--',
           }, {
             title: '用户名',
             dataIndex: 'userName',
-            render: (text, record) =>  (record.userName && record.userName) || '--',
+            render: (text, record) => (record.userName && record.userName) || '--',
           }, {
             title: '审批信息',
             dataIndex: 'auditInfo',
@@ -82,5 +82,5 @@ class Results extends Component {
   }
 }
 
-export default Results;
+export default ApprovalResults;
 

@@ -1,0 +1,22 @@
+// 公司部门
+export const SELECT_DEPARTMENT_BASIS = '0';
+export const SELECT_DEPARTMENT_INFORMATION = '1';
+export const SELECT_DEPARTMENT_IT = '2';
+export const SELECT_DEPARTMENT_MAINTENANCE = '3';
+export const SELECT_DEPARTMENT_DATA = '4';
+export const SELECT_DEPARTMENT_SERVICE = '5';
+
+
+export const SELECT_DEPARTMENT_MAP = {
+  [SELECT_DEPARTMENT_BASIS]: '基础业务平台部',
+  [SELECT_DEPARTMENT_INFORMATION]: '信息管理部',
+  [SELECT_DEPARTMENT_IT]: 'IT流程部',
+  [SELECT_DEPARTMENT_MAINTENANCE]: '运维管理部',
+  [SELECT_DEPARTMENT_DATA]: '数据平台部',
+  [SELECT_DEPARTMENT_SERVICE]: '管廊维修部',
+};
+
+export const SELECT_DEPARTMENT = Object.keys(SELECT_DEPARTMENT_MAP).map(cur => ({
+  id: cur,
+  name: SELECT_DEPARTMENT_MAP[cur],
+}));

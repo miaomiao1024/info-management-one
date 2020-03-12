@@ -1,114 +1,114 @@
-import React,{Component} from 'react';
-import {Module} from '../../../../../components' ;
+import React, { Component } from 'react';
+import { Module } from '@src/components';
 import axios from 'axios';
-import {Button,Form,Input,message} from 'antd';
+import { Button, Form, Input, message } from 'antd';
 
 const user_id = window.sessionStorage.getItem("user_id");
-class ApprovedNew extends Component{
+class Approval extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ApprovalDetail:[]
-    }    
+      ApprovalDetail: []
+    }
   }
-   
-  handleSubmitAgree = (e) =>{
+
+  handleSubmitAgree = (e) => {
     e.preventDefault()
     const {
       form,
       history
-    }= this.props
-    const {getFieldValue} = form;
+    } = this.props
+    const { getFieldValue } = form;
     const values = form.getFieldsValue()
-    
-    if(!getFieldValue('userId')){
+
+    if (!getFieldValue('userId')) {
       message.error('请输入审批人ID')
     }
-    if(!getFieldValue('userName')){
+    if (!getFieldValue('userName')) {
       message.error('请输入审批人姓名')
     }
-    if(!getFieldValue('auditInfo')){
+    if (!getFieldValue('auditInfo')) {
       message.error('请输入审批意见')
     }
-    
+
     console.log(values)
-    axios.post(`/api/v1/user/planAudit?user_id=${user_id}`,values)
-      .then(function(response){
-        if(response.status === 200){
+    axios.post(`/api/v1/user/planAudit?user_id=${user_id}`, values)
+      .then(function (response) {
+        if (response.status === 200) {
           message.info('新建审批成功')
           axios.put(`/api/v1/user/agreeReservePlan?id=${values.planId}&user_id=${user_id}`)
-            .then(function(respose){
+            .then(function (respose) {
               message.info('审批成功')
               history.push('/emergency/approval')
             })
-            .catch(function(error){
+            .catch(function (error) {
               console.log(error)
               message.info('审批失败')
             })
         }
       })
-      .catch(function(error){
+      .catch(function (error) {
         console.log(error)
         message.info('新建审批失败')
       })
-    
+
   }
-  handleSubmitDisagree = (e) =>{
+  handleSubmitDisagree = (e) => {
     e.preventDefault()
     const {
       form,
       history
-    }= this.props
-    const {getFieldValue} = form;
+    } = this.props
+    const { getFieldValue } = form;
     const values = form.getFieldsValue()
-    if(!getFieldValue('planId')){
+    if (!getFieldValue('planId')) {
       message.error('请输入预案ID')
     }
-    if(!getFieldValue('userId')){
+    if (!getFieldValue('userId')) {
       message.error('请输入审批人ID')
     }
-    if(!getFieldValue('userName')){
+    if (!getFieldValue('userName')) {
       message.error('请输入审批人姓名')
     }
-    if(!getFieldValue('auditInfo')){
+    if (!getFieldValue('auditInfo')) {
       message.error('请输入审批意见')
     }
-    
+
     console.log(values)
-    axios.post('/api/v1/user/planAudit',values)
-      .then(function(response){
-        if(response.status === 200){
+    axios.post('/api/v1/user/planAudit', values)
+      .then(function (response) {
+        if (response.status === 200) {
           message.info('新建审批成功')
           axios.put(`/api/v1/user/disagreeReservePlan?id=${values.planId}&user_id=${user_id}`)
-            .then(function(respose){
+            .then(function (respose) {
               message.info('审批成功')
               history.push('/emergency/approval')
             })
-            .catch(function(error){
+            .catch(function (error) {
               console.log(error)
               message.info('审批失败')
             })
         }
       })
-      .catch(function(error){
+      .catch(function (error) {
         console.log(error)
         message.info('新建审批失败')
       })
-    
+
   }
-  render(){
+  render() {
     const createFormItemLayout = {
-      labelCol: {span:8},
-      wrapperCol : {span:8},
+      labelCol: { span: 8 },
+      wrapperCol: { span: 8 },
     }
-    const { 
+    const {
       form: { getFieldDecorator },
-      match: { params : {id}}
+      match: { params: { id } }
     } = this.props
     //const {approvalDetail} = this.state
     return (
       <div>
-           
+
         <div className="emergency-approval-create-page">
           <Module>
             <Form>
@@ -116,11 +116,11 @@ class ApprovedNew extends Component{
                 {...createFormItemLayout}
                 label="预案ID"
               >
-                {getFieldDecorator('planId',{
-                  initialValue:id,
-                  rules:[{
-                    required:true,
-                    message:"请输入预案ID"
+                {getFieldDecorator('planId', {
+                  initialValue: id,
+                  rules: [{
+                    required: true,
+                    message: "请输入预案ID"
                   }]
                 })(
                   <Input placeholder="请输入预案ID" />
@@ -130,10 +130,10 @@ class ApprovedNew extends Component{
                 {...createFormItemLayout}
                 label="审批人ID"
               >
-                {getFieldDecorator('userId',{
-                  rules:[{
-                    required:true,
-                    message:"请输入审批人ID"
+                {getFieldDecorator('userId', {
+                  rules: [{
+                    required: true,
+                    message: "请输入审批人ID"
                   }]
                 })(
                   <Input placeholder="请输入审批人ID（ID必须为数字）" />
@@ -143,10 +143,10 @@ class ApprovedNew extends Component{
                 {...createFormItemLayout}
                 label="审批人名称"
               >
-                {getFieldDecorator('userName',{
-                  rules:[{
-                    required:true,
-                    message:"请输入审批人名称"
+                {getFieldDecorator('userName', {
+                  rules: [{
+                    required: true,
+                    message: "请输入审批人名称"
                   }]
                 })(
                   <Input placeholder="请输入审批人名称" />
@@ -156,17 +156,17 @@ class ApprovedNew extends Component{
                 {...createFormItemLayout}
                 label="审批意见"
               >
-                {getFieldDecorator('auditInfo',{
-                  rules:[{
-                    required:true,
-                    message:"请输入审批意见"
+                {getFieldDecorator('auditInfo', {
+                  rules: [{
+                    required: true,
+                    message: "请输入审批意见"
                   }]
                 })(
                   <Input placeholder="请输入审批意见" />
                 )}
               </Form.Item>
               <section className="operator-container">
-                <div style={{textAlign:"center"}}>
+                <div style={{ textAlign: "center" }}>
                   <Button
                     htmlType="submit"
                     type="primary"
@@ -174,18 +174,18 @@ class ApprovedNew extends Component{
                     onClick={this.handleSubmitAgree}
                   >审批通过</Button>
                   <Button
-                    style={{marginLeft:"28px"}}
+                    style={{ marginLeft: "28px" }}
                     htmlType="submit"
                     type="danger"
                     size="default"
                     onClick={this.handleSubmitDisagree}
                   >不通过</Button>
                   <Button
-                    style={{marginLeft:"28px"}}
+                    style={{ marginLeft: "28px" }}
                     type="default"
                     size="default"
-                    onClick={()=>{
-                      const {history} = this.props
+                    onClick={() => {
+                      const { history } = this.props
                       history.push('/emergency/approval')
                     }}
                   >取消</Button>
@@ -196,10 +196,10 @@ class ApprovedNew extends Component{
         </div>
       </div>
     );
-    
-      
-  
+
+
+
   }
 }
 
-export default Form.create()(ApprovedNew);
+export default Form.create()(Approval);

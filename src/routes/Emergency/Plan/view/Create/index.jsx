@@ -6,7 +6,7 @@ import axios from 'axios';
 import './index.styl'
 
 var value = window.sessionStorage.getItem("user_id")
-class EmergencyNew extends Component {
+class EmergencyPlanNew extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -193,8 +193,8 @@ class EmergencyNew extends Component {
 
   render() {
     const createFormItemLayout = {
-      labelCol: { span: 8 },
-      wrapperCol: { span: 8 },
+      labelCol: { span: 6 },
+      wrapperCol: { span: 12 },
     }
     const {
       form: { getFieldDecorator },
@@ -495,4 +495,4 @@ class EmergencyNew extends Component {
   }
 }
 
-export default Form.create()(EmergencyNew);
+export default Form.create()(EmergencyPlanNew);

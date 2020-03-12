@@ -17,7 +17,6 @@ class PageTitle extends Component {
       titles,
       children,
     } = this.props;
-    //console.log(children) --undefined
     return (
       <div className="page-title-component"
         style={{ display: 'flex', justifyContent: "space-between" }}

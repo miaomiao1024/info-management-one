@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { PageTitle, Module } from '@src/components';
+import { PageTitleCreate, Module } from '@src/components';
 import { Form, Input, Select, Button, message, DatePicker } from 'antd';
 import axios from 'axios';
 import moment from 'moment';
@@ -149,7 +149,7 @@ class PlanNew extends Component {
 
   render() {
     const createFormItemLayout = {
-      labelCol: { span: 8 },
+      labelCol: { span: 6 },
       wrapperCol: { span: 8 },
     }
     const {
@@ -160,9 +160,9 @@ class PlanNew extends Component {
     return (
       <div>
         {id ?
-          <PageTitle titles={['巡检维护', '巡检计划', '编辑']} />
+          <PageTitleCreate titles={['巡检计划', '编辑']} jump={'/inspection/plan'} />
           :
-          <PageTitle titles={['巡检维护', '巡检计划', '新建']} />
+          <PageTitleCreate titles={['巡检计划', '新建']} jump={'/inspection/plan'} />
         }
         <div className="entrance-work-create-page">
           <Module>

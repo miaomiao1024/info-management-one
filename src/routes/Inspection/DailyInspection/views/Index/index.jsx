@@ -68,8 +68,18 @@ class InspectionReport extends Component {
 
   //在有事件发生的日期上添加标识
   dateCellRender = (value) => {
+    console.log(this.getdate(value))
     for (let m = 0; m < dateList.length; m++) {
-      if (this.getdate(value) === dateList[m]) {
+      if (this.getdate(value) !== dateList[m] && (this.getdate(value) === '2020-02-28'
+        || this.getdate(value) === '2020-02-20'
+        || this.getdate(value) === '2020-02-03'
+        || this.getdate(value) === '2020-02-07'
+        || this.getdate(value) === '2020-02-14'
+        || this.getdate(value) === '2020-02-11'
+        || this.getdate(value) === '2020-02-23'
+        || this.getdate(value) === '2020-01-28'
+
+      )) {
         return (
           <Badge dot>
             <Icon type="notification" />
@@ -134,11 +144,14 @@ class InspectionReport extends Component {
           INSPECTION_DUTY_PEOPLE.filter(item => item.id == value)[0].name : ''}
       />
     </div>)
-
   }
+
+
+
 
   render() {
     const { dutyPeople } = this.props
+    console.log(dutyPeople)
     return (
       <div className="inspection-report">
         <PageTitle titles={['巡检维护', '巡检报告']}>

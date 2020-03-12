@@ -271,8 +271,7 @@ class InspectionRoute extends React.Component {
             className="group-list-module"
             bordered
             footer={() => <div>
-              <Button type="danger"><Icon type="delete" /> 删除</Button>
-              <Button type="danger"><Icon type="printer" /> 打印</Button>
+              <Button type="danger" style={{ marginRight: '20px' }} ><Icon type="delete" /> 删除</Button>
               <Button type="danger"><Icon type="download" /> 导出</Button>
             </div>}
             dataSource={data}

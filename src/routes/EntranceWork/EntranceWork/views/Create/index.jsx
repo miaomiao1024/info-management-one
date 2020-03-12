@@ -1,5 +1,5 @@
 import React, { Component, } from 'react';
-import { PageTitle, Module } from '../../../../../components';
+import { PageTitleCreate, Module } from '@src/components';
 import { Form, Input, Select, Button, message } from 'antd';
 import { SELECT_HOME_WORK_NUM } from '../../configs';
 import axios from 'axios';
@@ -88,9 +88,9 @@ class EntranceWorkNew extends Component {
     return (
       <div>
         {id ?
-          <PageTitle titles={['巡检维护', '入廊申请', '编辑']} />
+          <PageTitleCreate titles={['入廊申请', '编辑']} jump={'/entrance/work'} />
           :
-          <PageTitle titles={['巡检维护', '入廊申请', '新建']} />
+          <PageTitleCreate titles={['入廊申请', '新建']} jump={'/entrance/work'} />
         }
         <div className="entrance-work-create-page">
           <Module>

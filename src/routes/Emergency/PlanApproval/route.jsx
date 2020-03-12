@@ -3,12 +3,12 @@ import { Switch, Route } from 'react-router-dom';
 import { Spin } from 'antd';
 import Loadable from 'react-loadable';
 
-class ApprovalRoute extends Component{
-  constructor(props){
+class ApprovalRoute extends Component {
+  constructor(props) {
     super(props);
     this.state = {};
   }
-  render(){
+  render() {
     const Loading = () => {
       return (
         <div className="loading">
@@ -18,8 +18,8 @@ class ApprovalRoute extends Component{
     };
     return (
       <Switch>
-        <Route 
-          exact   
+        <Route
+          exact
           path="/emergency/approval"
           component={Loadable({
             loader: () => import(
@@ -30,7 +30,7 @@ class ApprovalRoute extends Component{
         />
         <Route
           exact
-          path="/emergency/approval/new/:id"
+          path="/emergency/approval/:id"
           component={Loadable({
             loader: () => import(
               /* webpackChunkName: "Device" */
@@ -38,7 +38,7 @@ class ApprovalRoute extends Component{
             loading: Loading
           })}
         />
-       
+
       </Switch>
     );
   }

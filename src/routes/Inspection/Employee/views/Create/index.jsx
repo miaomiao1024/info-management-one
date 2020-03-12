@@ -1,7 +1,10 @@
 import React, { Component, } from 'react';
 import { PageTitleCreate } from '@src/components';
-import { Form, Input, Button, message, Upload, Tooltip, Icon } from 'antd';
+import { Form, Input, Button, message, Select, Upload, Icon } from 'antd';
 import axios from 'axios';
+import {
+  SELECT_DEPARTMENT,
+} from '../../configs';
 var user_id = window.sessionStorage.getItem("user_id")
 class InspectorInformationNew extends Component {
   constructor(props) {
@@ -101,7 +104,7 @@ class InspectorInformationNew extends Component {
                   message: "请输入员工姓名",
                 }]
               })(
-                <Input placeholder="请输入员工姓名" />
+                <Input placeholder="请输入员工姓名" allowClear />
               )}
             </Form.Item>
             <Form.Item
@@ -114,7 +117,7 @@ class InspectorInformationNew extends Component {
                   required: true,
                   message: "请输入电子邮箱",
                 }]
-              })(<Input placeholder="请输入电子邮箱" type="email" />)}
+              })(<Input placeholder="请输入电子邮箱" type="email" allowClear />)}
             </Form.Item>
             <Form.Item
               {...createFormItemLayout}
@@ -124,9 +127,19 @@ class InspectorInformationNew extends Component {
                 initialValue: id && employeeDetail.email,
                 rules: [{
                   required: true,
-                  message: "请输入所属部门",
+                  message: "请选择所属部门",
                 }]
-              })(<Input placeholder="请输入所属部门" />)}
+              })(<Select placeholder="请选择所属部门" onChange={this.selectSituation} allowClear>
+                {
+                  SELECT_DEPARTMENT &&
+                  SELECT_DEPARTMENT.map(cur => (
+                    <Select.Option key={cur.id}
+                      value={cur.id}
+                    >{cur.name}</Select.Option>
+                  ))
+                }
+              </Select>
+              )}
             </Form.Item>
             <Form.Item
               {...createFormItemLayout}
@@ -138,7 +151,7 @@ class InspectorInformationNew extends Component {
                   required: true,
                   message: "请输入职位",
                 }]
-              })(<Input placeholder="请输入职位" />)}
+              })(<Input placeholder="请输入职位" allowClear />)}
             </Form.Item>
             <Form.Item
               {...createFormItemLayout}
@@ -146,7 +159,7 @@ class InspectorInformationNew extends Component {
             >
               {getFieldDecorator('phone', {
                 initialValue: id && employeeDetail.phone
-              })(<Input placeholder="请输入电话" type="phone" />)}
+              })(<Input placeholder="请输入电话" type="phone" allowClear />)}
             </Form.Item>
             <Form.Item
               {...createFormItemLayout}
@@ -162,7 +175,11 @@ class InspectorInformationNew extends Component {
             >
               {getFieldDecorator('auatar', {
                 initialValue: id && employeeDetail.avatar,
-              })(<Input placeholder="请输入微信号" type="auatar" />)}
+              })(
+                <Upload>
+                  <Button><Icon type="upload" />上传</Button>
+                </Upload>
+              )}
             </Form.Item>
 
             <section className="operator-container">

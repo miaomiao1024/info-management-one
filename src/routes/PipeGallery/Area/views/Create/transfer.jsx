@@ -8,27 +8,27 @@ const List = Immutable.List
 let rightArr = []
 let number = 1
 const propsData = List([{
-  name: '艾弗森',
+  name: '洛克',
   id: 1,
   status: 0
 }, {
-  name: '哈哈',
+  name: 'Emma',
   id: 2,
   status: 0
 }, {
-  name: '附件',
+  name: '刘婷婷',
   id: 3,
   status: 0
 }, {
-  name: '测试阿豪',
+  name: '李文杰',
   id: 4,
   status: 0
 }, {
-  name: '赞赞',
+  name: '王晨旭',
   id: 5,
   status: 0
 }, {
-  name: '落落',
+  name: '张佳云',
   id: 6,
   status: 0
 }])
@@ -75,7 +75,7 @@ class Transfer extends Component {
       <div
         key={index}
         style={{ color: '#1890ff' }}
-      ><span className="box-content-padding">{item.name}</span></div>
+      ><p className="box-content-padding">{item.name}</p></div>
     ))
   }
   // 全选
@@ -115,7 +115,7 @@ class Transfer extends Component {
         </div>
         <div className="people-box">
           <div className="box-title">
-            <p>已选区域负责人</p>
+            <p style={{ marginTop: '7px' }}>已选区域负责人</p>
           </div>
           <div className="box-content">
             {this.renderRightBox(rightData)}
