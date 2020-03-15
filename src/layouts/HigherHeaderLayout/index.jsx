@@ -124,9 +124,14 @@ class HigherHeaderLayout extends Component {
               url: '/pipe/area'
             },
             {
-              id: '54',
+              id: '53',
               name: '操作日志',
               url: '/pipe/log'
+            },
+            {
+              id: '54',
+              name: '跳转Kibana',
+              url: '/pipe/Kibana'
             },
           ]
         }
@@ -154,7 +159,6 @@ class HigherHeaderLayout extends Component {
     return (
       <Header className="custom-header">
         <Link to="/"><div className={'logo'}>信息管理系统</div></Link>
-        {/* <div className={'logo'} onClick={this.props.updateParent(true)}>信息管理系统</div> */}
         <div className={'userInfo'}>
           <Dropdown overlay={menu}
             placement="bottomRight"
@@ -162,10 +166,10 @@ class HigherHeaderLayout extends Component {
             <span>
               <Avatar className={'avatar-custom'}>
                 <Icon type="user"
-                  style={{ fontSize: '18px', }}
+                  style={{ fontSize: '18px' }}
                 />
               </Avatar>
-              <span style={{ color: 'white', }}>{window.sessionStorage.getItem("username")}</span>
+              <span style={{ color: 'white' }}>{window.sessionStorage.getItem("username")}</span>
             </span>
           </Dropdown>
           <span style={{ color: 'white', margin: 15 }} onClick={() => this.props.onClicked({ showModule: false })}>返回上一级</span>
@@ -178,7 +182,6 @@ class HigherHeaderLayout extends Component {
           id="dropdownMenu"
         >
           {this.state.meuList && this.state.meuList.map((subMenu) => {
-            {/* {this.props.meuList && this.props.meuList.map((subMenu) =>{ */ }
             return (
               <Menu.SubMenu
                 className="custom-sub-menu"
@@ -189,28 +192,10 @@ class HigherHeaderLayout extends Component {
                   <Menu.Item key={item.id}>
                     <Link to={item.url}>{item.name}</Link>
                   </Menu.Item>
-                )
-                }
+                )}
               </Menu.SubMenu>
             );
-
-          })
-          }
-          {/*为实现向外部跳转，单独罗列出的导航部分 */}
-          {/* <SubMenu
-            key="sub1"
-            className="custom-sub-menu"
-            title={
-              <span>
-                <span>更多</span>
-              </span>
-            }
-          >
-            <Menu.Item key="5"><a href="https://10.112.217.199" target="_blank" ></a>视频通话</Menu.Item>
-            <Menu.Item key="6"><a href="http://39.104.84.131/bigData/device1.html?id=1" target="_blank" ></a>大数据平台</Menu.Item>
-            <Menu.Item key="7" > <p onClick={this.jumpTo}> 物管理平台</p>
-            </Menu.Item>
-          </SubMenu> */}
+          })}
         </Menu>
       </Header>
     );

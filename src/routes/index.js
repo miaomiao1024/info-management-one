@@ -223,6 +223,15 @@ class RouteView extends Component {
             loading: Loading
           })}
         />
+        <Route
+          path="/pipe/Kibana"
+          component={Loadable({
+            loader: () => import(
+              /* webpackChunkName: "PipeKibana" */
+              './PipeGallery/Kibana'),
+            loading: Loading
+          })}
+        />
       </Switch>
     );
   }

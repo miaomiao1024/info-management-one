@@ -8,18 +8,14 @@ import './index.styl'
 import '../../routes/Home/views/Index/index.styl'
 import axios from 'axios';
 import Background from './img/home.gif'
-//var user_id=window.sessionStorage.getItem("user_id")
-//背景图片的填充
+
 var sectionStyle = {
   width: "100%",
   height: "100vh",
-  // makesure here is String确保这里是一个字符串，以下是es6写法
   backgroundImage: `url(${Background})`,
-
 };
-
-//const FormItem =  Form.Item;
 const { Content } = Layout;
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -58,7 +54,8 @@ class Login extends React.Component {
     const username = window.sessionStorage.getItem("username")
     const password = window.sessionStorage.getItem("password")
     console.log(username)
-    window.location.href = 'http://39.104.84.131/secondStage?username=' + username + '&password=' + password
+    // window.location.href = 'http://39.104.84.131/secondStage?username=' + username + '&password=' + password // 阿里云地址 
+    window.location.href = 'http://10.112.217.199:800' // 服务器地址
   }
 
   //登陆后，路由跳转到模块化页面
@@ -78,15 +75,17 @@ class Login extends React.Component {
     window.open('http://39.104.189.84:8800/baidu?id=' + user_id)
   }
   //跳转日志平台
-  log = () => {
+  logCenter = () => {
     window.open('http://39.104.189.84:30190/app/kibana')
   }
   //跳转统一配置
   config = () => {
-    window.open('http://39.104.189.84:30090/main.html')
+    // window.open('http://39.104.189.84:30090/main.html') // 阿里云地址
+    window.open('http://10.112.217.199:30090')  // 服务器地址
   }
   kuber = () => {
-    window.open('http://39.104.189.84:30000/')
+    // window.open('http://39.104.189.84:30000/') // 阿里云地址
+    window.open('http://10.112.12.81:30000/')  // 服务器地址
   }
   account = () => {
     const username = window.sessionStorage.getItem("username")
@@ -130,20 +129,16 @@ class Login extends React.Component {
       });
   }
   inputPassword = () => {
-    console.log("进入onChange函数");
     const { form } = this.props
     let values = {}
     values = form.getFieldsValue()
-    console.log(values);
     let str = values.password
     let patrn = /[`~!@#$%^&*()_\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、]/im
     if (patrn.test(str)) {
-      console.log("有")
       this.setState({ borderColor: 1 })
     } else {
       console.log("无非法字符")
     }
-
   }
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -201,7 +196,6 @@ class Login extends React.Component {
                     )}
                   </Form.Item>
                 </div>
-
                 <Button className="btn"
                   htmlType="submit"
                   type="primary"
@@ -210,7 +204,6 @@ class Login extends React.Component {
             </Form>
           </div>
         }
-
         {(showContent && !showModule && !sysJudge) &&
           <div className="wholehomepage" style={{ height: '960px' }}>
             <span className="logout" onClick={this.logout}>
@@ -293,10 +286,10 @@ class Login extends React.Component {
                 <div className="service-box" onClick={this.account}>
                   <div className="service-icon"><Icon type="apartment" /></div>
                   <div className="service-title">权限管理</div>
-                  <p className="service-desc">收集多个模块的运行日志并统一管理。</p>
+                  <p className="service-desc">功能级、数据级、粗粒度、细粒度的权限管理。</p>
                 </div>
               </Col>
-              <Col span={6} onClick={this.log}>
+              <Col span={6} onClick={this.logCenter}>
                 <div className="service-box">
                   <div className="service-icon"><Icon type="book" /></div>
                   <div className="service-title">统一日志中心</div>
@@ -337,18 +330,9 @@ class Login extends React.Component {
               </Content>
             </div>)
         }
-        {/* <div>
-                 <HeaderLayout/>
-                     <Content className={'content-layout'}>
-                         <IndexView/>
-                 </Content>
-             </div> */}
       </div>
-
     );
   }
-
 }
-
 
 export default Form.create()(Login);

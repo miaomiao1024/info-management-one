@@ -71,13 +71,13 @@ class InspectionReport extends Component {
     console.log(this.getdate(value))
     for (let m = 0; m < dateList.length; m++) {
       if (this.getdate(value) !== dateList[m] && (this.getdate(value) === '2020-02-28'
-        || this.getdate(value) === '2020-02-20'
-        || this.getdate(value) === '2020-02-03'
-        || this.getdate(value) === '2020-02-07'
-        || this.getdate(value) === '2020-02-14'
-        || this.getdate(value) === '2020-02-11'
-        || this.getdate(value) === '2020-02-23'
-        || this.getdate(value) === '2020-01-28'
+        || this.getdate(value) === '2020-03-15'
+        // || this.getdate(value) === '2020-02-03'
+        // || this.getdate(value) === '2020-02-07'
+        // || this.getdate(value) === '2020-02-14'
+        // || this.getdate(value) === '2020-02-11'
+        // || this.getdate(value) === '2020-02-23'
+        // || this.getdate(value) === '2020-01-28'
 
       )) {
         return (

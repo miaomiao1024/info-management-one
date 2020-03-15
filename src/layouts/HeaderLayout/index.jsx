@@ -127,7 +127,11 @@ class HeaderLayout extends Component {
             {
               id: '54',
               name: '用户操作日志',
-              url: '/pipe/area'
+              url: '/pipe/log'
+            }, {
+              id: '55',
+              name: '跳转Kibana',
+              url: '/pipe/Kibana'
             },
           ]
         }

@@ -119,11 +119,6 @@ class LowerHeaderLayout extends Component {
               name: '操作日志',
               url: '/pipe/log'
             },
-            // {
-            //   id: '54',
-            //   name: 'Kibana',
-            //   url: '/pipe/area'
-            // },
           ]
         }
       ]
