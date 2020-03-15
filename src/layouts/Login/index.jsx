@@ -50,12 +50,11 @@ class Login extends React.Component {
 
   //跳转一期
   jumpTo = () => {
-    //const rea=this
     const username = window.sessionStorage.getItem("username")
     const password = window.sessionStorage.getItem("password")
     console.log(username)
     // window.location.href = 'http://39.104.84.131/secondStage?username=' + username + '&password=' + password // 阿里云地址 
-    window.location.href = 'http://10.112.217.199:800' // 服务器地址
+    window.open('http://10.112.217.199:800')  // 服务器地址
   }
 
   //登陆后，路由跳转到模块化页面
