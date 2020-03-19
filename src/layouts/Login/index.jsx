@@ -75,7 +75,8 @@ class Login extends React.Component {
   }
   //跳转日志平台
   logCenter = () => {
-    window.open('http://39.104.189.84:30190/app/kibana')
+    // window.open('http://39.104.189.84:30190/app/kibana') // 阿里云地址
+    window.open('http://10.112.12.81:5601/') // 服务器地址
   }
   //跳转统一配置
   config = () => {
@@ -90,6 +91,10 @@ class Login extends React.Component {
     const username = window.sessionStorage.getItem("username")
     const password = window.sessionStorage.getItem("password")
     window.location.href = 'http://39.104.84.131/jumpToUser?username=' + username + '&password=' + password
+  }
+  // 跳转智能监测平台
+  jumpInfo = () => {
+    window.open('http://10.112.196.254:10080')  // 服务器地址
   }
   //退出登录
   logout = () => {
@@ -234,11 +239,18 @@ class Login extends React.Component {
               </Col>
             </Row>
             <Row type="flex" justify="space-around">
-              <Col span={6}>
+              <Col span={6} push={2}>
                 <div className="service-box" onClick={this.showModule}>
                   <div className="service-icon"><Icon type="info" /></div>
                   <div className="service-title">信息管理平台</div>
                   <p className="service-desc">制定巡检路线并管理，提交预案申请并完成审批等。</p>
+                </div>
+              </Col>
+              <Col span={6} pull={2}>
+                <div className="service-box" onClick={this.jumpInfo}>
+                  <div className="service-icon"><Icon type="info" /></div>
+                  <div className="service-title">智能监测平台</div>
+                  <p className="service-desc">实现智慧管廊精确测控、物联网监测和隐患事故预警。</p>
                 </div>
               </Col>
             </Row>
