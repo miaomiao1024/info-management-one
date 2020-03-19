@@ -248,7 +248,7 @@ class Login extends React.Component {
               </Col>
               <Col span={6} pull={2}>
                 <div className="service-box" onClick={this.jumpInfo}>
-                  <div className="service-icon"><Icon type="info" /></div>
+                  <div className="service-icon"><Icon type="pie-chart" /></div>
                   <div className="service-title">智能监测平台</div>
                   <p className="service-desc">实现智慧管廊精确测控、物联网监测和隐患事故预警。</p>
                 </div>
